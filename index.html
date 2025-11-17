@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>velocity-transit-story</title>
+  <script type="module" src="./src/main.js"></script>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body>
+  <div id="container">
+    <!-- Insert the item-id of the webmap containing all the layers and bookmarks for this animation -->
+    <arcgis-map id="busMap" item-id=map-id zoom="18" center="-76.994897, 38.877374">
+      <arcgis-expand position="bottom-right" mode="floating">
+        <arcgis-time-slider slot="bottom-right" mode="cumulative-from-start" play-rate=250
+          reference-element="busMap"></arcgis-time-slider>
+      </arcgis-expand>
+
+    </arcgis-map>
+  </div>
+</body>
+
+</html>

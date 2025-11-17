@@ -1,0 +1,704 @@
+[
+    {
+        "viewpoint": {
+            "rotation": 0,
+            "scale": 1128.4971765,
+            "targetGeometry": {
+                "spatialReference": {
+                    "latestWkid": 3857,
+                    "wkid": 102100
+                },
+                "xmin": -8571243.706653344,
+                "ymin": 4703979.278927352,
+                "xmax": -8570818.227101305,
+                "ymax": 4704246.808526387
+            }
+        },
+        "layerVisibility": {
+            "layersOn": [
+                "WMATA Historical | Route C53 | Late",
+                "WMATA Historical | Route C53",
+                "WMATA | Metro Bus Stops",
+                "WMATA | Metro Bus Route C53"
+            ],
+            "layersOff": [
+                "WMATA Historical | Route C53",
+                "WMATA Historical | All Buses",
+                "OTP Hexbins | Route C53",
+                "OTP Hexbins | All Routes"
+            ]
+        },
+        "timeSlider": {
+            "timeSliderStart": "2025-11-04T16:03:00-05:00",
+            "timeSliderEnd": "2025-11-04T16:03:00-05:00",
+            "timeSliderUnit": "minutes",
+            "timeSliderStep": 1,
+            "timeSliderAutoplay": false
+        }
+    },
+    {
+        "viewpoint": {
+            "rotation": 0,
+            "scale": 36111.909643,
+            "targetGeometry": {
+                "spatialReference": {
+                    "latestWkid": 3857,
+                    "wkid": 102100
+                },
+                "xmin": -8579395.845616823,
+                "ymin": 4702486.4384143045,
+                "xmax": -8567175.475719748,
+                "ymax": 4710540.990269844
+            }
+        },
+        "layerVisibility": {
+            "layersOn": [
+                "WMATA Historical | Route C53",
+                "WMATA | Metro Bus Route C53",
+                "WMATA | Metro Bus Stops"
+            ],
+            "layersOff": [
+                "WMATA Historical | Route C53 | Late",
+                "WMATA Historical | All Buses",
+                "OTP Hexbins | Route C53",
+                "OTP Hexbins | All Routes"
+            ]
+        },
+        "trackRenderer": {
+            "trackLayerName": "WMATA Historical | Route C53",
+            "trackFieldName": "vehicle_id",
+            "trackInfo": {
+                "enabled": true,
+                "timeField": "startTimeField",
+                "maxDisplayObservationsPerTrack": 5,
+                "latestObservations": {
+                    "visible": true,
+                    "labelsVisible": true,
+                    "labelingInfo": [
+                        {
+                            "symbol": {
+                                "type": "text",
+                                "color": "#fccb16",
+                                "haloColor": "black",
+                                "haloSize": 1.5,
+                                "font": {
+                                    "family": "Ubuntu Mono",
+                                    "size": 12,
+                                    "weight": "bold"
+                                }
+                            },
+                            "labelPlacement": "above-right",
+                            "labelExpressionInfo": {
+                                "expression": "var lbl = $feature.vehicle_id + \" [\" + Upper($feature.otptext) + \"]\" + TextFormatting.NewLine + Upper($feature.severity_traffic) + \" \" + $feature.incidenttype_traffic\nreturn lbl",
+                                "title": "New expression"
+                            },
+                            "where": "vehicle_id = 5470 AND trip_id = 27331020"
+                        }
+                    ],
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-marker",
+                            "style": "circle",
+                            "color": "#E4F3FF",
+                            "size": 8,
+                            "outline": {
+                                "color": "black",
+                                "width": 0.25
+                            }
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#e2491aff",
+                                    "size": 5,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#3cca38ff",
+                                    "size": 5,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#fccb16",
+                                    "size": 5,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#DCDCDC",
+                                    "size": 5,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "previousObservations": {
+                    "enabled": true,
+                    "visible": true,
+                    "labelsVisible": false,
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-marker",
+                            "style": "circle",
+                            "color": "#E4F3FF",
+                            "size": 2,
+                            "outline": {
+                                "color": "white",
+                                "width": 0
+                            }
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#e2491aff",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#3cca38ff",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#fccb16",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#DCDCDC",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "trackLines": {
+                    "visible": true,
+                    "enabled": true,
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-line",
+                            "color": "#3cca38ff",
+                            "width": 0.5
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#e2491aff",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#3cca38ff",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#fccb16",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#999999",
+                                    "width": 1
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "timeSlider": {
+            "timeSliderStart": "2025-11-04T16:02:00-05:00",
+            "timeSliderEnd": "2025-11-04T18:00:00-05:00",
+            "timeSliderUnit": "minutes",
+            "timeSliderStep": 1,
+            "timeSliderAutoplay": true
+        }
+    },
+    {
+        "viewpoint": {
+            "rotation": 0,
+            "scale": 36111.909643,
+            "targetGeometry": {
+                "spatialReference": {
+                    "latestWkid": 3857,
+                    "wkid": 102100
+                },
+                "xmin": -8579395.845616823,
+                "ymin": 4702486.4384143045,
+                "xmax": -8567175.475719748,
+                "ymax": 4710540.990269844
+            }
+        },
+        "layerVisibility": {
+            "layersOn": [
+                "OTP Hexbins | Route C53"
+            ],
+            "layersOff": [
+                "WMATA Historical | Route C53 | Late",
+                "WMATA Historical | Route C53",
+                "WMATA Historical | All Buses",
+                "OTP Hexbins | All Routes"
+            ]
+        },
+        "timeSlider": {
+            "timeSliderStart": "2025-11-04T23:00:00-05:00",
+            "timeSliderEnd": "2025-11-04T23:00:00-05:00",
+            "timeSliderUnit": "minutes",
+            "timeSliderStep": 1,
+            "timeSliderAutoplay": false
+        }
+    },
+    {
+        "viewpoint": {
+            "rotation": 0,
+            "scale": 36111.909643,
+            "targetGeometry": {
+                "spatialReference": {
+                    "latestWkid": 3857,
+                    "wkid": 102100
+                },
+                "xmin": -8579395.845616823,
+                "ymin": 4702486.4384143045,
+                "xmax": -8567175.475719748,
+                "ymax": 4710540.990269844
+            }
+        },
+        "layerVisibility": {
+            "layersOn": [
+                "WMATA Historical | All Buses",
+                "OTP Hexbins | All Routes"
+            ],
+            "layersOff": [
+                "WMATA Historical | Route C53 | Late",
+                "WMATA Historical | Route C53",
+                "WMATA | Metro Bus Route C53",
+                "OTP Hexbins | Route C53"
+            ]
+        },
+        "trackRenderer": {
+            "trackLayerName": "WMATA Historical | All Buses",
+            "trackFieldName": "vehicle_id",
+            "trackInfo": {
+                "enabled": true,
+                "timeField": "startTimeField",
+                "maxDisplayObservationsPerTrack": 5,
+                "latestObservations": {
+                    "visible": true,
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-marker",
+                            "style": "circle",
+                            "color": "#E4F3FF",
+                            "size": 8,
+                            "outline": {
+                                "color": "black",
+                                "width": 0.25
+                            }
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#e2491aff",
+                                    "size": 4,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#3cca38ff",
+                                    "size": 4,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#fccb16",
+                                    "size": 4,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#DCDCDC",
+                                    "size": 4,
+                                    "outline": {
+                                        "color": "black",
+                                        "width": 0.25
+                                    }
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "previousObservations": {
+                    "enabled": true,
+                    "visible": true,
+                    "labelsVisible": false,
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-marker",
+                            "style": "circle",
+                            "color": "#E4F3FF",
+                            "size": 2,
+                            "outline": {
+                                "color": "white",
+                                "width": 0
+                            }
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#e2491aff",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#3cca38ff",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#fccb16",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-marker",
+                                    "style": "circle",
+                                    "color": "#999999",
+                                    "size": 2,
+                                    "outline": {
+                                        "color": "white",
+                                        "width": 0
+                                    }
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "trackLines": {
+                    "visible": true,
+                    "enabled": true,
+                    "renderer": {
+                        "type": "unique-value",
+                        "field": "otptext",
+                        "defaultSymbol": {
+                            "type": "simple-line",
+                            "color": "#3cca38ff",
+                            "width": 0.5
+                        },
+                        "uniqueValueInfos": [
+                            {
+                                "value": "Early",
+                                "label": "Early",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#e2491aff",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "On-Time",
+                                "label": "On-Time",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#3cca38ff",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "Late",
+                                "label": "Late",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#fccb16",
+                                    "width": 1
+                                }
+                            },
+                            {
+                                "value": "Between Timepoints",
+                                "label": "Between Timepoints",
+                                "symbol": {
+                                    "type": "simple-line",
+                                    "color": "#858585",
+                                    "width": 1
+                                }
+                            }
+                        ],
+                        "visualVariables": [
+                            {
+                                "type": "opacity",
+                                "valueExpression": "if(!HasValue($view, [ \"timeProperties\", \"currentEnd\" ])) { return null; } var e = $view.timeProperties.currentEnd; var t = $feature.vehicle_position_timestamp; var d = DateDiff(e, t, 'minutes'); return d;",
+                                "legendOptions": {
+                                    "showLegend": false
+                                },
+                                "stops": [
+                                    {
+                                        "value": 7,
+                                        "opacity": 1
+                                    },
+                                    {
+                                        "value": 14,
+                                        "opacity": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "timeSlider": {
+            "timeSliderStart": "2025-11-04T08:00:00-05:00",
+            "timeSliderEnd": "2025-11-04T10:00:00-05:00",
+            "timeSliderUnit": "minutes",
+            "timeSliderStep": 1,
+            "timeSliderAutoplay": true
+        }
+    }
+]
