@@ -414,14 +414,14 @@
         },
         "layerVisibility": {
             "layersOn": [
-                "WMATA Historical | All Buses",
-                "OTP Hexbins | All Routes"
+                "WMATA Historical | All Buses"
             ],
             "layersOff": [
                 "WMATA Historical | Route C53 | Late",
                 "WMATA Historical | Route C53",
                 "WMATA | Metro Bus Route C53",
-                "OTP Hexbins | Route C53"
+                "OTP Hexbins | Route C53",
+                "OTP Hexbins | All Routes"
             ]
         },
         "trackRenderer": {
