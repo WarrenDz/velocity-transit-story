@@ -11,7 +11,7 @@ import { slideAnimation } from "/src/slideAnimator.js";
 
 let mapView = null;
 let isEmbedded = false; // Flag to indicate if the map is viewed in an embedded context
-let hashIndex = null;
+let hashIndex = 0;
 
 // Define the map components
 const mapElement =
@@ -27,6 +27,9 @@ if (!mapElement) {
 mapElement.setAttribute("item-id", animationConfig.mapId);
 mapElement.setAttribute("play-rate", animationConfig.timePlayRate);
 const timeSlider = document.querySelector("arcgis-time-slider");
+
+// Base URL for runtime assets (respects Vite `base` config and GitHub Pages path)
+const BASE = import.meta.env.BASE_URL || '/';
 
 // Set DEBUG to true to enable debug logging
 const DEBUG = animationConfig.debugMode;
@@ -174,5 +177,7 @@ mapElement.addEventListener("arcgisViewReadyChange", async (event) => {
       event.stopPropagation();
     });
   }
-  initMapAnimator(animationConfig.choreographyPath);
+  // ensure choreography path is resolved relative to BASE (strip leading slash)
+  const choreographyPath = (animationConfig.choreographyPath || '').replace(/^\//, '');
+  initMapAnimator(BASE + choreographyPath);
 });
