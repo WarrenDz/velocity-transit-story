@@ -89,7 +89,7 @@
                             },
                             "labelPlacement": "above-right",
                             "labelExpressionInfo": {
-                                "expression": "var lbl = $feature.vehicle_id + \" [\" + Upper($feature.otptext) + \"]\" + TextFormatting.NewLine + Upper($feature.severity_traffic) + \" \" + $feature.incidenttype_traffic\nreturn lbl",
+                                "expression": "var lbl = \"BUS: \" +$feature.vehicle_id + \" [\" + Upper($feature.otptext) + \"]\" + TextFormatting.NewLine + Upper($feature.severity_traffic) + \" \" + $feature.incidenttype_traffic\nreturn lbl",
                                 "title": "New expression"
                             },
                             "where": "vehicle_id = 5470 AND trip_id = 27331020"
