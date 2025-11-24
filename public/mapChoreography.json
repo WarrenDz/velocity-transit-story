@@ -380,7 +380,8 @@
         },
         "layerVisibility": {
             "layersOn": [
-                "OTP Hexbins | Route C53"
+                "OTP Hexbins | Route C53",
+                "WMATA | Metro Bus Route C53"
             ],
             "layersOff": [
                 "WMATA Historical | Route C53 | Late",
@@ -440,7 +441,7 @@
                             "type": "simple-marker",
                             "style": "circle",
                             "color": "#E4F3FF",
-                            "size": 8,
+                            "size": 5,
                             "outline": {
                                 "color": "black",
                                 "width": 0.25
@@ -454,7 +455,7 @@
                                     "type": "simple-marker",
                                     "style": "circle",
                                     "color": "#e2491aff",
-                                    "size": 4,
+                                    "size": 5,
                                     "outline": {
                                         "color": "black",
                                         "width": 0.25
@@ -468,7 +469,7 @@
                                     "type": "simple-marker",
                                     "style": "circle",
                                     "color": "#3cca38ff",
-                                    "size": 4,
+                                    "size": 5,
                                     "outline": {
                                         "color": "black",
                                         "width": 0.25
@@ -482,7 +483,7 @@
                                     "type": "simple-marker",
                                     "style": "circle",
                                     "color": "#fccb16",
-                                    "size": 4,
+                                    "size": 5,
                                     "outline": {
                                         "color": "black",
                                         "width": 0.25
@@ -496,7 +497,7 @@
                                     "type": "simple-marker",
                                     "style": "circle",
                                     "color": "#DCDCDC",
-                                    "size": 4,
+                                    "size": 5,
                                     "outline": {
                                         "color": "black",
                                         "width": 0.25
